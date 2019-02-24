@@ -26,3 +26,16 @@ public:
 		return result;
 	}
 };
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	vector<int> vec;
+	vec.push_back(2);
+	vec.push_back(7);
+	vec.push_back(11);
+	vec.push_back(15);
+
+	Solution ddd;
+	vector<int> rel = ddd.twoSum(vec, 88);
+	return 0;
+}

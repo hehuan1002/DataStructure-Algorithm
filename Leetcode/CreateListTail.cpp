@@ -15,7 +15,7 @@ void CreateListTail(LinKList *&list, int data[], int n)
 {
 	list = new LinKList;
 	LinKList *r = list; // r节点一直指向链表的尾部
-	for (int i =0; i < 3; i++)
+	for (int i =0; i < n; i++)
 	{
 		LinKList *node = new LinKList;
 		node->nData = data[i];

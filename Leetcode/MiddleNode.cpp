@@ -30,6 +30,9 @@ void CreateListHead(LinKList *&list, int data[], int n)
 
 LinKList* MiddleNode(LinKList* list)
 {
+	if (list == NULL)
+		return NULL;
+	
 	LinKList* fast = list->next;
 	LinKList* slow = list->next;
 	while (fast != NULL && fast->next != NULL)

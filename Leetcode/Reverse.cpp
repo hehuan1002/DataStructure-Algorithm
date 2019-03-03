@@ -26,24 +26,31 @@ void CreateListHead(LinKList *&list, int data[], int n)
 	}
 }
 
-// TODO: 单链表反转有问题？？ [3/2/2019 hehuan]
+
+// p1->p2->p3,没倒置一个节点，就重新赋值p1和p2。 [3/3/2019 hehuan]
 void Reverse(LinKList *&list)
 {
-	LinKList *p, *q;
-	p = list->next;
-	list->next = NULL;
-	while (NULL != p)
+	if (list == NULL || list->next == NULL)
+		return ;
+
+	LinKList*p1, *p2, *p3;
+	p1 = list;
+	p2 = list->next;
+	while (p2)
 	{
-		q = p->next;
-		p->next = list->next;
-		list->next = q;
-		p = q;
+		p3 = p2->next;
+		p2->next = p1;
+		p1 = p2;
+		p2 = p3;
 	}
+
+	list->next = NULL;
+	list = p1;
 }
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	int data[3] = {1,2,3};
+	int data[3] = {3,2,1};
 	LinKList *list = NULL;
 
 	CreateListHead(list, data, sizeof(data)/sizeof(int));
@@ -56,7 +63,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("NULL\n");
 
 
-	Reverse(list);
+	Reverse(list->next);
 
 	tempNode = list->next;
 	while (tempNode)

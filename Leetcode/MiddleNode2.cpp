@@ -28,7 +28,7 @@ void CreateListHead(LinKList *&list, int data[], int n)
 	}
 }
 
-LinKList* MiddleNode(LinKList* list)
+LinKList* MiddleNode2(LinKList* list)
 {
 	LinKList* p = list->next;
 	std::vector<LinKList*> vec;
@@ -59,7 +59,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	printf("NULL\n");
 
-	LinKList* list3 = MiddleNode(list);
+	LinKList* list3 = MiddleNode2(list);
 	printf("MiddleNode:%d", list3->nData);
 	return 0;
 }

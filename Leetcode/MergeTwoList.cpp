@@ -94,7 +94,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	LinKList* list3 = MergeTwoList(list, list2);
-	tempNode = list3->next;
+	tempNode = list3;
 	while (tempNode)
 	{
 		printf("%d->", tempNode->nData);

@@ -14,7 +14,7 @@ void ListDelete(LinKList *list,int i,int *data)
 	LinKList *p,*q;
 	p = list;
 	int j = 1;
-	while (p->next)
+	while (p->next && j < i)
 	{
 		p = p->next;
 		++j;

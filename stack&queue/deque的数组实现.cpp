@@ -1,5 +1,5 @@
 //// TestMemset.cpp : 定义控制台应用程序的入口点。
-//
+// hehuan
 
 #include "stdafx.h"
 #define MAXSIZE 10

@@ -79,7 +79,6 @@ public:
 		printf("%d ", data);
 		m_pdata[m_nrear] = data;
 		m_nrear = (m_nrear+1)%MAXSIZE;// 当存满4个元素的时候，结果rear=0了？？？？
-
 	}
 
 	T pop()

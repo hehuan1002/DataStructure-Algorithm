@@ -1,5 +1,5 @@
 //// TestMemset.cpp : 定义控制台应用程序的入口点。
-// hehuan
+//
 
 #include "stdafx.h"
 #define MAXSIZE 10
@@ -12,22 +12,28 @@ public:
 	CQueue()
 	{
 		m_pData = new int[sizeof(int)*MAXSIZE];
-		m_nfront = -1;
-		m_nrear = -1;
+		m_nfront = 0; // 由-1改为0是有原因的。
+		m_nrear = 0;
 	}
 	~CQueue()
 	{
 		delete []m_pData;
 		m_pData = NULL;
-		m_nfront = -1;
-		m_nrear = -1;
+		m_nfront = 0;
+		m_nrear = 0;
 	}
 public:
 
+	void visit(int data)
+	{
+		printf("%d ", data);
+	}
+
+
 	void clearqueue()
 	{
-		m_nfront = -1;
-		m_nrear = -1;
+		m_nfront = 0;
+		m_nrear = 0;
 	}
 
 	bool empty()
@@ -42,8 +48,20 @@ public:
 			return -1;
 		}
 
-		m_nfront++;
+		//m_nfront++; // m_nfront默认为-1时，取值是有问题的。只是取值不会把值pop掉
 		return m_pData[m_nfront];
+	}
+
+	// 从队头到队尾依次输出
+	void QueueTraverse()
+	{ 
+		int i = m_nfront;
+		while (i != m_nrear)
+		{
+			visit(m_pData[i]);
+			i++;
+		}
+		printf("\n");
 	}
 
 	int size()
@@ -53,14 +71,14 @@ public:
 
 	void push(int data)
 	{
-		if (m_nrear == MAXSIZE-1)
+		if (m_nrear == MAXSIZE)
 		{
 			printf("队列已满，长度:%d\n", size());
 			return;
 		}
 
-		m_nrear++;
 		m_pData[m_nrear] = data;
+		m_nrear++;
 		printf("%d ", data);
 	}
 
@@ -72,8 +90,8 @@ public:
 			return -1;
 		}
 
-		m_nfront++;
 		int ret = m_pData[m_nfront];
+		m_nfront++;
 		printf("%d ", ret);
 		return ret;
 	}
@@ -88,6 +106,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	CQueue<int> queue;
 
 	// 入队
+	printf("入队\n");
 	queue.push(0);
 	queue.push(1);
 	queue.push(2);
@@ -100,12 +119,15 @@ int _tmain(int argc, _TCHAR* argv[])
 	queue.push(9);
 	queue.push(10);
 
-	// 
+	// 输出其值
+	queue.QueueTraverse();
+
+	// 取队头元素的值
 	int nfront = queue.gettop();
-	printf("队列头:%d", nfront);
+	printf("队列头元素:%d\n", nfront);
 
 	// 出队
-	queue.pop();
+	printf("出队\n");
 	queue.pop();
 	queue.pop();
 	queue.pop();

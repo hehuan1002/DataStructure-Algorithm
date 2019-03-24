@@ -69,10 +69,11 @@ public:
 
 	void push(T data)
 	{
-		// 问题处？ 队满的判断
+		// 问题处？ 队满的判断，如果是这样判断，说明少存了一个，比较奇怪？
 		if ((m_nrear+1) %MAXSIZE == m_nfront)
 		{
 			printf("队列已满\n");
+			return;
 		}
 
 		printf("%d ", data);
@@ -86,6 +87,7 @@ public:
 		if (m_nfront == m_nrear)
 		{
 			printf("队列已空\n");
+            return -1;
 		}
 
 		T ret = m_pdata[m_nfront];

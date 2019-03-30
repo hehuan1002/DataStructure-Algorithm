@@ -73,7 +73,7 @@ public:
 	{
 		if (m_nrear == MAXSIZE)
 		{
-			printf("队列已满，长度:%d\n", size());
+			printf("\n队列已满，长度:%d\n", size());
 			return;
 		}
 
@@ -86,7 +86,7 @@ public:
 	{
 		if (m_nfront >= m_nrear)
 		{
-			printf("队列已空，长度:%d\n", size());
+			printf("\n队列已空，长度:%d\n", size());
 			return -1;
 		}
 
@@ -97,8 +97,8 @@ public:
 	}
 private:
 	int *m_pData; //数据地址
-	int m_nfront; // 队列头
-	int m_nrear; // 队列尾
+	int m_nfront; // 队列头，初始化为0位置
+	int m_nrear; // 指向队尾元素的下一个位置，初始化为0位置
 };
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -106,7 +106,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	CQueue<int> queue;
 
 	// 入队
-	printf("入队\n");
+	printf("入队: ");
 	queue.push(0);
 	queue.push(1);
 	queue.push(2);
@@ -127,7 +127,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("队列头元素:%d\n", nfront);
 
 	// 出队
-	printf("出队\n");
+	printf("出队：");
 	queue.pop();
 	queue.pop();
 	queue.pop();

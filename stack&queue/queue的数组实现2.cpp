@@ -101,7 +101,7 @@ public:
 	}
 private:
 	int *m_pData; //数据地址
-	int m_nrear; // 队列尾，队列头永远是0
+	int m_nrear; //指向队尾元素的下一个位置，初始化为0位置；
 };
 
 int _tmain(int argc, _TCHAR* argv[])

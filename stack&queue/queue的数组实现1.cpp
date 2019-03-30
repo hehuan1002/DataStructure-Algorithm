@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include <string.h>
 #define MAXSIZE 10
 
 
@@ -12,6 +13,7 @@ public:
 	CQueue()
 	{
 		m_pData = new int[sizeof(int)*MAXSIZE];
+		memset(m_pData, 0, sizeof(int)*MAXSIZE);
 		m_nfront = 0; // 由-1改为0是有原因的。
 		m_nrear = 0;
 	}
@@ -107,7 +109,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	// 入队
 	printf("入队: ");
-	queue.push(0);
 	queue.push(1);
 	queue.push(2);
 	queue.push(3);
@@ -118,6 +119,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	queue.push(8);
 	queue.push(9);
 	queue.push(10);
+	queue.push(11); 
+	queue.push(12);
 
 	// 输出其值
 	queue.QueueTraverse();

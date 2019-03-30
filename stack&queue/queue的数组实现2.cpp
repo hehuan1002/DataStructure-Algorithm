@@ -6,6 +6,7 @@
 #define MAXSIZE 10
 
 
+// 队列头永远是0位置
 template<class T>
 class CQueue
 {

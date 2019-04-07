@@ -11,15 +11,15 @@ typedef struct
 
 void Init(Sqlist *L)
 {
-	L->r[0] = 9;
+	L->r[0] = 2;
 	L->r[1] = 1;
-	L->r[2] = 5;
-	L->r[3] = 8;
-	L->r[4] = 3;
-	L->r[5] = 7;
-	L->r[6] = 4;
-	L->r[7] = 6;
-	L->r[8] = 2;
+	L->r[2] = 3;
+	L->r[3] = 4;
+	L->r[4] = 5;
+	L->r[5] = 6;
+	L->r[6] = 7;
+	L->r[7] = 8;
+	L->r[8] = 9;
 	
 	L->length = MAXSIZE;
 }
@@ -38,7 +38,7 @@ void BubbleSort3(Sqlist *L)
 {
 	for (int i = 0; i < L->length; i++)
 	{
-		bool bFlag = false;
+		bool bFlag = false; // 加标志位，如果是已经排序好的话，就不用每次循环比较了，if (L->r[j] > L->r[j+1])可以省略掉。
 		for (int j = 0; j < L->length - 1 - i; j++)
 		{
 			if (L->r[j] > L->r[j+1])
